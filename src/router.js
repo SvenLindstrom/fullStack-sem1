@@ -1,5 +1,5 @@
 import express from "express"
-import {getDish, getDishes, newDish, patchDish, deleteDish} from "./controller.js"
+import {getDish, getDishes, newDish, patchDish, deleteDish} from "./controler.js"
 
 const router = express.Router()
 

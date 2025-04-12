@@ -5,12 +5,19 @@ import express from "express"
 export const router = express.Router()
 
 
+export function newError(code, msg){
+	const err = Error(msg)
+	err.status = code
+	return err
+}
+
+
+
 router.use((req, res, next) => {
 	const err = Error("Not Found")
 	err.status = 404
 	next(err)
 })
-
 
 router.use((err, req, res, next) => {
 	const status = err.status || 500
