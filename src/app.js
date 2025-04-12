@@ -5,7 +5,13 @@ import { router as apiRouter } from "./router.js"
 
 const app = express()
 
+
 app.use(express.json())
+
+app.use((req, res, next) => {
+	console.log(req.url)
+	next()
+})
 
 app.use(express.static("static"))
 
@@ -15,4 +21,4 @@ app.use(errorHandler)
 
 const port = process.env.PORT || 5000
 
-const server = app.listen(port, ()=>{console.log("listening on 3000")})
+const server = app.listen(port, ()=>{console.log(`listening on ${port}`)})
