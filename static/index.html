@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sem1</title>
+    <link href="style.css" rel="stylesheet" />
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <table id="dish_table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Cooking time</th>
+          <th>origin</th>
+          <th>ingredients</th>
+          <th>Steps</th>
+        </tr>
+      </thead>
+      <tbody id="tBody"></tbody>
+    </table>
+
+    <div id="form_div">
+      <form id="dish_form">
+        <label for="name">Name: </label>
+        <input id="name" type="text" name="name" value="" required />
+        <label for="time">Cooking Time: </label>
+        <input id="time" type="text" name="cookingTime" value="" required />
+        <label for="origin">Country of Origin: </label>
+        <input id="origin" type="text" name="originContry" value="" required />
+        <label for="ingredients">Ingredients (comma seperated): </label>
+        <input
+          id="ingredients"
+          type="text"
+          name="ingredients"
+          value=""
+          required
+        />
+        <label for="steps">Steps (new line seperated): </label>
+        <textarea
+          id="steps"
+          name="preparationSteps"
+          form="dish_form"
+        ></textarea>
+        <input id="subBt" type="submit" name="" value="submit" />
+        <input type="reset" value="reset" />
+      </form>
+    </div>
+
+    <template id="dish_temp">
+      <tr>
+        <td class="name"></td>
+        <td class="time"></td>
+        <td class="origin"></td>
+        <td class="ingredients"></td>
+        <td style="white-space: pre" class="steps"></td>
+        <td><button class="editBt" type="">edit</button></td>
+        <td><button class="deleteBt" type="">delete</button></td>
+      </tr>
+    </template>
+
+    <template id="edit_temp">
+      <tr>
+        <td class="name"><input type="text" value="" /></td>
+        <td class="time"><input type="text" value="" /></td>
+        <td class="origin"><input type="text" value="" /></td>
+        <td class="ingredients"><input type="text" value="" /></td>
+        <td class="steps">
+          <textarea style="white-space: pre"></textarea>
+          <!-- <input type="text" value="" /> -->
+        </td>
+        <td><button class="updateBt" type="">update</button></td>
+        <td><button class="cancelBt" type="">cancel</button></td>
+      </tr>
+    </template>
+  </body>
+</html>
