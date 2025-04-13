@@ -21,6 +21,7 @@ async function handleFormSubmit(event){
 	console.log(newDish.ingredients)
 
 	newDish.ingredients = newDish.ingredients.split(/\s*,\s*/)
+	newDish.preparationSteps = newDish.preparationSteps.split("\n")
 
 	const res = await addNewDish(newDish)
 
@@ -56,6 +57,7 @@ function populateRows(data){
 	const rowContainer = document.getElementById("tBody")
 
 	data.forEach(element => {
+		console.log(element)
 		const row = populateRow(element, rowTemp.cloneNode(true))
 		Dishes[element._id] = element
 		rowContainer.append(row)
