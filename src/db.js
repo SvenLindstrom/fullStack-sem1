@@ -3,7 +3,6 @@ import "dotenv/config"
 
 const uri = process.env.DB_URI
 
-
 mongoose.connect(uri)
 
 const dishSchema = new mongoose.Schema({
@@ -15,10 +14,9 @@ const dishSchema = new mongoose.Schema({
 	originContry: mongoose.SchemaTypes.String,
 	ingredients: [mongoose.SchemaTypes.String],
 	preparationSteps: [mongoose.SchemaTypes.String],
+	rating: Number,
 })
 
-
 const DishModal =  mongoose.model("dishModal", dishSchema)
-
 
 export { DishModal }

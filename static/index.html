@@ -16,6 +16,7 @@
           <th>origin</th>
           <th>ingredients</th>
           <th>Steps</th>
+          <th>Rating</th>
         </tr>
       </thead>
       <tbody id="tBody"></tbody>
@@ -43,6 +44,8 @@
           name="preparationSteps"
           form="dish_form"
         ></textarea>
+        <label for="rating">Rating: </label>
+        <input id="rating" type="number" name="rating" value="" required />
         <input id="subBt" type="submit" name="" value="submit" />
         <input type="reset" value="reset" />
       </form>
@@ -55,6 +58,7 @@
         <td class="origin"></td>
         <td class="ingredients"></td>
         <td style="white-space: pre" class="steps"></td>
+        <td class="rating"></td>
         <td><button class="editBt" type="">edit</button></td>
         <td><button class="deleteBt" type="">delete</button></td>
       </tr>
@@ -70,6 +74,7 @@
           <textarea style="white-space: pre"></textarea>
           <!-- <input type="text" value="" /> -->
         </td>
+        <td class="rating"><input type="number" value="" /></td>
         <td><button class="updateBt" type="">update</button></td>
         <td><button class="cancelBt" type="">cancel</button></td>
       </tr>

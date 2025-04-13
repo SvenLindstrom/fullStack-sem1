@@ -81,6 +81,7 @@ function populateRowData(element, node){
 	node.querySelector(".origin").textContent = element.originContry
 	node.querySelector(".ingredients").textContent = element.ingredients.join(", ")
 	node.querySelector(".steps").textContent = element.preparationSteps.join("\n")
+	node.querySelector(".rating").textContent = element.rating
 }
 
 
@@ -125,6 +126,7 @@ function creatForm(row){
 	node.querySelector(".origin input").value = row.originContry
 	node.querySelector(".ingredients input").value = row.ingredients.join(", ")
 	node.querySelector(".steps textarea").value = row.preparationSteps.join("\n")
+	node.querySelector(".rating input").value = row.rating
 
 	node.querySelector(".cancelBt").addEventListener("click", handleCancel)
 	node.querySelector(".updateBt").addEventListener("click", handleUpdate)
@@ -174,6 +176,7 @@ function creatUpdate(row_edit){
 	update.originContry = row_edit.querySelector(".origin input").value
 	update.ingredients = row_edit.querySelector(".ingredients input").value.split(/\s*,\s*/)
 	update.preparationSteps = row_edit.querySelector(".steps textarea").value.split("\n")
+	update.rating = row_edit.querySelector(".rating input").value
 	return update
 }
 

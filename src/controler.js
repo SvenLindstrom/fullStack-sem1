@@ -1,6 +1,4 @@
 import {getAllDishes, getOneDishes, insertNewDishe, updateDish, removeDish} from "./model.js"
-import { newError } from "./error.js"
-
 
 async function getDishes(req, res, next){
 	await getAllDishes()
@@ -17,7 +15,6 @@ function getDish(req, res, next){
 
 function newDish(req, res, next){
 	const dish = req.body
-	console.log(dish)
 	insertNewDishe(dish)
 		.then(data => res.status(201).json(data))
 		.catch(err => {err.status = 409; next(err)})

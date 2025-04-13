@@ -1,7 +1,5 @@
 import { DishModal } from "./db.js"
 
-
-
 async function getAllDishes(){
 	const res = await DishModal.find().exec()
 		.catch(err => {throw err} )
@@ -16,7 +14,7 @@ async function getOneDishes(name){
 
 async function insertNewDishe(newDish){
  	const dish = new DishModal(newDish)
-	const res =await dish.save()
+	const res = await dish.save()
 		.catch(err => {throw new Error("douplicate dish name")} )
 	return res
 }
@@ -34,6 +32,5 @@ async function removeDish(id){
 	if (!res.deletedCount) throw new Error("Not Found")
 	return res
 }
-
 
 export {getAllDishes, getOneDishes, insertNewDishe, updateDish, removeDish}
