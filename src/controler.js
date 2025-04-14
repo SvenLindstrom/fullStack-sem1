@@ -1,4 +1,4 @@
-import {getAllDishes, getOneDishes, insertNewDishe, updateDish, removeDish} from "./model.js"
+import {getAllDishes, getOneDishes,getOneDishesById ,insertNewDishe, updateDish, removeDish} from "./model.js"
 
 async function getDishes(req, res, next){
 	await getAllDishes()
@@ -9,6 +9,13 @@ async function getDishes(req, res, next){
 function getDish(req, res, next){
 	const name = req.params.name
 	getOneDishes(name)
+		.then(data => res.json(data))
+		.catch(err => {err.status = 404; next(err)})
+}
+
+function getDishById(req, res, next){
+	const id = req.params.id
+	getOneDishesById(id)
 		.then(data => res.json(data))
 		.catch(err => {err.status = 404; next(err)})
 }
@@ -35,4 +42,4 @@ function deleteDish(req, res, next){
 		.catch(err => {err.status = 404; next(err)})
 }
 
-export {getDishes, getDish, newDish, patchDish, deleteDish}
+export {getDishes, getDish, newDish, patchDish, deleteDish, getDishById}

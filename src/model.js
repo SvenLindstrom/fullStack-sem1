@@ -15,6 +15,15 @@ async function getOneDishes(name){
 	return res
 }
 
+
+// get dish using name filter
+// check if empty and throw error
+async function getOneDishesById(id){
+	const res = await DishModal.findById(id).exec()
+	if (!res) throw new Error("Not Found")
+	return res
+}
+
 // insert new dish
 // catch error if duplicate and propegate up
 async function insertNewDishe(newDish){
@@ -43,4 +52,4 @@ async function removeDish(id){
 	return res
 }
 
-export {getAllDishes, getOneDishes, insertNewDishe, updateDish, removeDish}
+export {getAllDishes, getOneDishes,getOneDishesById ,insertNewDishe, updateDish, removeDish}
